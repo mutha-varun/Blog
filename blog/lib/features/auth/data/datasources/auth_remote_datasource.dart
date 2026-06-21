@@ -18,10 +18,11 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource{
 
   final firebaseAuth = FirebaseAuth.instance;
 
+  AuthRemoteDataSourceImpl();
+
   @override
   Future<String> signInWithEmailPassword({required String email, required String password}) {
     
-
     throw UnimplementedError();
   }
 

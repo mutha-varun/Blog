@@ -1,8 +1,10 @@
 import 'package:blog/core/theme/pallete.dart';
+import 'package:blog/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:blog/features/auth/presentation/pages/signin.dart';
 import 'package:blog/features/auth/presentation/widgets/authbutton.dart';
 import 'package:blog/features/auth/presentation/widgets/authfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignupPage extends StatefulWidget {
   static route()=> MaterialPageRoute(
@@ -62,6 +64,15 @@ class _SignupPageState extends State<SignupPage> {
               const SizedBox(height: 25,),
               AuthButton(text: "Sign up",
                 onTap: () {
+                  if(formKey.currentState!.validate()){
+                    context.read<AuthBloc>().add(
+                      AuthSignUp(
+                        email: emailController.text.trim(), 
+                        name: nameController.text.trim(), 
+                        password: passwordController.text.trim()
+                      )
+                    );
+                  }
                 },
               ),
               const SizedBox(height: 20,),
