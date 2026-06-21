@@ -1,30 +1,27 @@
 import 'package:blog/core/theme/pallete.dart';
-import 'package:blog/features/auth/presentation/pages/signin.dart';
+import 'package:blog/features/auth/presentation/pages/signup.dart';
 import 'package:blog/features/auth/presentation/widgets/authbutton.dart';
 import 'package:blog/features/auth/presentation/widgets/authfield.dart';
 import 'package:flutter/material.dart';
 
-class SignupPage extends StatefulWidget {
+class SigninPage extends StatefulWidget {
   static route()=> MaterialPageRoute(
-      builder: (context)=> const SignupPage()
+      builder: (context)=> const SigninPage()
     );
-                  
-  const SignupPage({super.key});
+  const SigninPage({super.key});
 
   @override
-  State<SignupPage> createState() => _SignupPageState();
+  State<SigninPage> createState() => _SigninPageState();
 }
 
-class _SignupPageState extends State<SignupPage> {
-  final formKey = GlobalKey<FormState>();
+class _SigninPageState extends State<SigninPage> {
+ final formKey = GlobalKey<FormState>();
 
-  final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
   @override
   void dispose() {
-    nameController.dispose();
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
@@ -40,17 +37,13 @@ class _SignupPageState extends State<SignupPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text("Sign Up",
+              const Text("Sign In",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 40
                 ),
               ),
               const SizedBox(height: 15,),
-              Authfield(text: "Name",
-                controller: nameController,
-              ),
-              const SizedBox(height: 20,),
               Authfield(text: "Email",
                 controller: emailController,
               ),
@@ -60,30 +53,28 @@ class _SignupPageState extends State<SignupPage> {
                 obscure: true,
               ),
               const SizedBox(height: 25,),
-              AuthButton(text: "Sign up",
-                onTap: () {
-                },
+              AuthButton(text: "Sign in",
+                onTap: () {},
               ),
               const SizedBox(height: 20,),
               GestureDetector(
-                onTap: () {
+                onTap:(){
                   Navigator.push(context, 
-                    SigninPage.route()
+                    SignupPage.route()
                   );
                 },
                 child: RichText(
                   text: TextSpan(
-                    text: "Already have an account? ",
+                    text: "Don't have an account? ",
                     style: Theme.of(context).textTheme.titleMedium,
                     children: [
                       TextSpan(
-                        text: "Sign in",
+                        text: "Sign up",
                         style: Theme.of(context).textTheme.titleMedium?.copyWith(
                           color: Pallete.gradient2,
                           fontWeight: FontWeight.bold
                         ) 
                       )  
-                        
                     ]
                   )
                 ),
