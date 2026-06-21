@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -14,7 +15,9 @@ import 'package:flutter/foundation.dart'
 ///   options: DefaultFirebaseOptions.currentPlatform,
 /// );
 /// ```
-class DefaultFirebaseOptions {
+class DefaultFirebaseOptions {  
+
+  //@codescene(disable:"Complex Method")
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
       return web;
@@ -43,39 +46,39 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCu3J9GSWeRYdEuIe22N7Wtjnwjh8rhnSQ',
-    appId: '1:915085217042:web:14a5fd2a465c17854637cb',
-    messagingSenderId: '915085217042',
-    projectId: 'bloc-695c5',
-    authDomain: 'bloc-695c5.firebaseapp.com',
-    storageBucket: 'bloc-695c5.firebasestorage.app',
-    measurementId: 'G-PFNNQWJGZH',
+  static FirebaseOptions web = FirebaseOptions(
+    apiKey: dotenv.env['webAPI']! ,
+    appId: '1:575869883887:web:8f5065bafc46ecb65f921a',
+    messagingSenderId: '575869883887',
+    projectId: 'blog-d0fc7',
+    authDomain: 'blog-d0fc7.firebaseapp.com',
+    storageBucket: 'blog-d0fc7.firebasestorage.app',
+    measurementId: 'G-QNN02N7NRS',
   );
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyB5lm6rd6rfSDPukowloi9D_TBYxlTE8Tw',
-    appId: '1:915085217042:android:dca61a4284f006374637cb',
-    messagingSenderId: '915085217042',
-    projectId: 'bloc-695c5',
-    storageBucket: 'bloc-695c5.firebasestorage.app',
+  static FirebaseOptions android = FirebaseOptions(
+    apiKey: dotenv.env['andoirdAPI']!,
+    appId: '1:575869883887:android:bb5a9947f0a668eb5f921a',
+    messagingSenderId: '575869883887',
+    projectId: 'blog-d0fc7',
+    storageBucket: 'blog-d0fc7.firebasestorage.app',
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBy8FAwgA45jK4LDqNs-KMt1goE1_5yviw',
-    appId: '1:915085217042:ios:3a15c0bb2cecc71f4637cb',
-    messagingSenderId: '915085217042',
-    projectId: 'bloc-695c5',
-    storageBucket: 'bloc-695c5.firebasestorage.app',
+  static FirebaseOptions ios = FirebaseOptions(
+    apiKey: dotenv.env['mac_iosAPI']!,
+    appId: '1:575869883887:ios:896859e33f231c6c5f921a',
+    messagingSenderId: '575869883887',
+    projectId: 'blog-d0fc7',
+    storageBucket: 'blog-d0fc7.firebasestorage.app',
     iosBundleId: 'com.example.blog',
   );
 
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBy8FAwgA45jK4LDqNs-KMt1goE1_5yviw',
-    appId: '1:915085217042:ios:3a15c0bb2cecc71f4637cb',
-    messagingSenderId: '915085217042',
-    projectId: 'bloc-695c5',
-    storageBucket: 'bloc-695c5.firebasestorage.app',
+  static FirebaseOptions macos = FirebaseOptions(
+    apiKey: dotenv.env['mac_iosAPI']!,
+    appId: '1:575869883887:ios:896859e33f231c6c5f921a',
+    messagingSenderId: '575869883887',
+    projectId: 'blog-d0fc7',
+    storageBucket: 'blog-d0fc7.firebasestorage.app',
     iosBundleId: 'com.example.blog',
   );
 }

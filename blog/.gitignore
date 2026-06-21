@@ -12,6 +12,7 @@
 .swiftpm/
 migrate_working_dir/
 **/.DS_Store
+.env
 
 # IntelliJ related
 *.iml
@@ -33,6 +34,8 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+/android/app/google-services.json
+
 
 # Symbolication related
 app.*.symbols

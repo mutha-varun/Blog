@@ -2,6 +2,9 @@
 **/Flutter/ephemeral/
 **/Pods/
 
+Runner/GoogleService-Info.plist
+Runner/Info.plist
+
 # Xcode-related
 **/dgph
 **/xcuserdata/
