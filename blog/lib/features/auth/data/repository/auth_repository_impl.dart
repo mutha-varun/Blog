@@ -1,7 +1,7 @@
 import 'package:blog/core/error/exceptions.dart';
 import 'package:blog/core/error/failure.dart';
 import 'package:blog/features/auth/data/datasources/auth_remote_datasource.dart';
-import 'package:blog/features/auth/domain/entities/user.dart';
+import 'package:blog/core/common/entities/user.dart';
 import 'package:blog/features/auth/domain/repository/auth_respository.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:fpdart/fpdart.dart';
@@ -51,6 +51,23 @@ class AuthRepositoryImpl implements AuthRespository{
     on ServerException catch(e){
       return Left(AppFailure(e.message));
     }
+  }
+  
+  @override
+  Future<Either<AppFailure, User>> currentUser() async {
+    try{
+      final user = await remoteDataSource.getCurrentUserData();
+      if(user == null){
+        return Left(AppFailure("User not logged in"));
+      }
+
+      return Right(user);
+
+    }on ServerException catch(e){
+      return Left(AppFailure(e.message));
+    }
+    
+
   }
   
 }

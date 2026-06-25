@@ -13,6 +13,7 @@
 migrate_working_dir/
 **/.DS_Store
 .env
+.vscode
 
 # IntelliJ related
 *.iml

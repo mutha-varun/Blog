@@ -1,3 +1,4 @@
+// ignore: The supplied phased action failed with an exception
 allprojects {
     repositories {
         google()
